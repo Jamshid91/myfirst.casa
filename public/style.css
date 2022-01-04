@@ -30267,6 +30267,10 @@ video {
   border-radius: 5px;
 }
 
+.carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .container {
   max-width: 1280px;
 }
@@ -30483,6 +30487,10 @@ video {
 
   .receive .form-item {
     width: 100%;
+  }
+
+  .carousel-list {
+    min-width: 200px !important;
   }
 }
 
@@ -176935,3 +176943,5 @@ video {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
+

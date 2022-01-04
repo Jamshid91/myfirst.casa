@@ -19,6 +19,10 @@
     border-radius: 5px;
   }
 
+  .carousel-wrapper::-webkit-scrollbar {
+      display: none;
+  }
+
 
     .container {
         max-width: 1280px;
@@ -207,4 +211,9 @@
     .receive .form-item {
         width: 100%;   
     }
+    .carousel-list {
+        min-width: 200px !important;
+      } 
     }
+
+

@@ -1,20 +1,38 @@
 let openLanguage = document.querySelector('header .language');
 let languageBg = document.querySelector('.language-bg');
 let main = document.querySelector('main .middle');
+let mainBg = document.querySelector('main .main_bgc');
 let burger = document.querySelector('header .burger');
 let mobileHeader = document.querySelector('.mobile-header-item');
 let mobileHeaderMenu = document.querySelector('.mobile-header-menu');
 let mobileHeaderLang = document.querySelector('.mobile-header-language');
 let next = document.querySelector('.carousel-wrapper .next');
 let prev = document.querySelector('.carousel-wrapper .prev');
+let searchInp = document.querySelector('.form-search-input');
+let clickedLists = document.querySelectorAll('.search-item li');
+let searchLists = document.querySelectorAll('.search .search-list');
+let clearInp = document.querySelector('.clear__inp');
+let noMatches = document.querySelector('.no-matches')
 
 openLanguage.addEventListener('click', () => {
     languageBg.classList.toggle('openLanguageBg');
-    console.dir(openLanguage.parentElement)
 });
 main.addEventListener('click', () => {
-    languageBg.classList.remove('openLanguageBg')
-})
+    languageBg.classList.remove('openLanguageBg');
+    noMatches.classList.add('hidden');
+    searchLists.forEach(elem => {
+        let elemPar = elem.parentElement.parentElement.parentElement
+        elemPar.classList.add('hidden');
+    });
+});
+mainBg.addEventListener('click', () => {
+    languageBg.classList.remove('openLanguageBg');
+    noMatches.classList.add('hidden');
+    searchLists.forEach(elem => {
+        let elemPar = elem.parentElement.parentElement.parentElement
+        elemPar.classList.add('hidden');
+    });
+});
 
 burger.addEventListener('click', () => {
     burger.classList.toggle('rotateBurger');
@@ -32,19 +50,11 @@ mobileHeaderMenu.addEventListener('click', () => {
 });
 // End menu mobile
 
+
 // Start Filter search
-
-    let searchInp = document.querySelector('.form-search-input');
-    let clickedLists = document.querySelectorAll('.search-item li');
-
-    clickedLists.forEach(click => {
-        
-    })
 
     searchInp.addEventListener('input', () => {
         let val = searchInp.value.trim();
-        let searchLists = document.querySelectorAll('.search .search-list');
-        let clearInp = document.querySelector('.clear__inp');
 
         clearInp.classList.remove('hidden')
         if(val != '') {
@@ -58,10 +68,8 @@ mobileHeaderMenu.addEventListener('click', () => {
                     elemPar.classList.remove('hidden');
                     let str = elem.innerText;
                     elem.innerHTML = insertMark(str, elem.textContent.search(val), val.length)
-                }
-
-                if(val != elem.innerText) {
-                    console.log('NO')
+                    
+                    noMatches.classList.remove('hidden')
                 }
 
                 elemPar.addEventListener('click', () => {
@@ -77,7 +85,12 @@ mobileHeaderMenu.addEventListener('click', () => {
                 let elemPar = elem.parentElement.parentElement.parentElement
                 elemPar.classList.add('hidden');
                 elem.innerHTML = elem.innerText;
-            })
+            });
+        }
+
+        if(searchInp.value == '') {
+            clearInp.classList.add('hidden');
+            noMatches.classList.add('hidden');
         }
 
         clearInp.addEventListener('click', () => {
@@ -86,7 +99,8 @@ mobileHeaderMenu.addEventListener('click', () => {
                 elemPar.classList.add('hidden');
             })
             searchInp.value = ''
-            clearInp.classList.add('hidden')
+            clearInp.classList.add('hidden');
+            noMatches.classList.add('hidden')
         })
     });
 
@@ -153,7 +167,7 @@ class Carouel {
 
         style.textContent = `
             .main {
-                overflow: hidden
+                
             }
 
             .wrap {
