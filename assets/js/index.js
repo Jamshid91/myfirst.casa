@@ -1,5 +1,6 @@
 let openLanguage = document.querySelector('header .language');
 let languageBg = document.querySelector('.language-bg');
+let main = document.querySelector('main .middle');
 let burger = document.querySelector('header .burger');
 let mobileHeader = document.querySelector('.mobile-header-item');
 let mobileHeaderMenu = document.querySelector('.mobile-header-menu');
@@ -8,8 +9,12 @@ let next = document.querySelector('.carousel-wrapper .next');
 let prev = document.querySelector('.carousel-wrapper .prev');
 
 openLanguage.addEventListener('click', () => {
-    languageBg.classList.toggle('openLanguageBg')
+    languageBg.classList.toggle('openLanguageBg');
+    console.dir(openLanguage.parentElement)
 });
+main.addEventListener('click', () => {
+    languageBg.classList.remove('openLanguageBg')
+})
 
 burger.addEventListener('click', () => {
     burger.classList.toggle('rotateBurger');

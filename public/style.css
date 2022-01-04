@@ -30432,6 +30432,16 @@ video {
     width: 50%;
   }
 
+  .aside-state-item li  {
+    margin-bottom: 25px;
+    width: 180px;
+    padding-left: 10px;
+  }
+
+  .aside-state-item li a {
+    font-size: 22px;
+  }
+
   .form .inp_email,
     .form .inp_num {
     width: 100%;
@@ -30462,8 +30472,13 @@ video {
     width: 50%;
   }
 
-  .aside-state-item ul li{
-    margin-top: 15px;
+  .aside-state-item li  {
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  .aside-state-item li a {
+    font-size: 22px;
   }
 
   .receive .form-item {
