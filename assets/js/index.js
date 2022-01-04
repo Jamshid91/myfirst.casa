@@ -12,7 +12,8 @@ let searchInp = document.querySelector('.form-search-input');
 let clickedLists = document.querySelectorAll('.search-item li');
 let searchLists = document.querySelectorAll('.search .search-list');
 let clearInp = document.querySelector('.clear__inp');
-let noMatches = document.querySelector('.no-matches')
+let noMatches = document.querySelector('.no-matches');
+let carouselLists = document.querySelectorAll('.carousel-list');
 
 openLanguage.addEventListener('click', () => {
     languageBg.classList.toggle('openLanguageBg');
@@ -266,6 +267,12 @@ const carousel = new Carouel({
 ]
 });
 carousel.init();
+
+if (window.matchMedia("(max-width: 576px)").matches) {
+    carouselLists.forEach(card => {
+        card.style.maxWidth = '300px'
+    });
+}
 // End Carousel
 
 // Start Form
