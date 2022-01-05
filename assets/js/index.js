@@ -49,6 +49,7 @@ burger.addEventListener('click', () => {
 });
 
 mobileHeaderLang.addEventListener('click', () => {
+    mobileHeaderLang.children[1].classList.toggle = 'hidden';
     mobileHeaderLang.children[1].style.display = 'block';
     mobileHeaderMenu.children[1].style.display = 'none';
 });
