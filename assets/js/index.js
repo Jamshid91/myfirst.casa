@@ -38,8 +38,8 @@ mainBg.addEventListener('click', () => {
 });
 
 window.addEventListener('click', (e) => {
-    if (!languageBg.contains(e.target)) {
-        // languageBg.style.display = 'none';
+    if (e.target == languageBg) {
+        languageBg.classList.add('hidden');
     }
 })
 
