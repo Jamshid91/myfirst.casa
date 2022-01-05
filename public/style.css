@@ -30402,6 +30402,10 @@ video {
   color: #777777;
 }
 
+.language-panel {
+  display: none;
+}
+
 /* SCREEN */
 
 @media screen and (max-width: 1024px) {

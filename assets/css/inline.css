@@ -133,6 +133,9 @@
         font-size: 12px;
         color: #777777;
     }
+    .language-panel {
+        display: none;
+    }
 
 
 /* SCREEN */
