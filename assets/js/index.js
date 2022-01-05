@@ -11,29 +11,37 @@ let prev = document.querySelector('.carousel-wrapper .prev');
 let searchInp = document.querySelector('.form-search-input');
 let clickedLists = document.querySelectorAll('.search-item li');
 let searchLists = document.querySelectorAll('.search .search-list');
-let clearInp = document.querySelector('.clear__inp');
 let noMatches = document.querySelector('.no-matches');
 let carouselLists = document.querySelectorAll('.carousel-list');
 
 openLanguage.addEventListener('click', () => {
-    languageBg.classList.toggle('openLanguageBg');
+    languageBg.classList.toggle('hidden');
 });
+
 main.addEventListener('click', () => {
-    languageBg.classList.remove('openLanguageBg');
+    languageBg.classList.add('hidden');
     noMatches.classList.add('hidden');
+    searchInp.classList.remove('rounded-b-none');
     searchLists.forEach(elem => {
         let elemPar = elem.parentElement.parentElement.parentElement
         elemPar.classList.add('hidden');
     });
 });
 mainBg.addEventListener('click', () => {
-    languageBg.classList.remove('openLanguageBg');
+    languageBg.classList.add('hidden');
     noMatches.classList.add('hidden');
+    searchInp.classList.remove('rounded-b-none');
     searchLists.forEach(elem => {
         let elemPar = elem.parentElement.parentElement.parentElement
         elemPar.classList.add('hidden');
     });
 });
+
+window.addEventListener('click', (e) => {
+    if (!languageBg.contains(e.target)) {
+        // languageBg.style.display = 'none';
+    }
+})
 
 burger.addEventListener('click', () => {
     burger.classList.toggle('rotateBurger');
@@ -55,9 +63,8 @@ mobileHeaderMenu.addEventListener('click', () => {
 // Start Filter search
 
     searchInp.addEventListener('input', () => {
+        searchInp.classList.add('rounded-b-none');
         let val = searchInp.value.trim();
-
-        clearInp.classList.remove('hidden')
         if(val != '') {
             searchLists.forEach(elem => {
                 let elemPar = elem.parentElement.parentElement.parentElement
@@ -87,22 +94,13 @@ mobileHeaderMenu.addEventListener('click', () => {
                 elemPar.classList.add('hidden');
                 elem.innerHTML = elem.innerText;
             });
+            searchInp.classList.remove('rounded-b-none');
         }
 
         if(searchInp.value == '') {
-            clearInp.classList.add('hidden');
             noMatches.classList.add('hidden');
+            searchInp.classList.remove('rounded-b-none');
         }
-
-        clearInp.addEventListener('click', () => {
-            searchLists.forEach(elem => {
-                let elemPar = elem.parentElement.parentElement.parentElement
-                elemPar.classList.add('hidden');
-            })
-            searchInp.value = ''
-            clearInp.classList.add('hidden');
-            noMatches.classList.add('hidden')
-        })
     });
 
     function insertMark(string,pos,len) {
@@ -150,7 +148,6 @@ class Carouel {
         if(this.responsive) {
             this.responseInit();
         }
-        console.log(this.carousels)
     }
 
      addMyClass() {
@@ -252,10 +249,10 @@ const carousel = new Carouel({
     slidesToShow: 3,
     infinity: true,
     responsive: [
-        {
-        breakpoint: 1024,
-        slidesToShow: 3
-        },
+        // {
+        // breakpoint: 1024,
+        // slidesToShow: 3
+        // },
         {
         breakpoint: 769,
         slidesToShow: 2

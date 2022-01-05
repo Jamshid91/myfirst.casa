@@ -30283,14 +30283,6 @@ video {
   color: #FDCE4D;
 }
 
-.language-bg {
-  display: none;
-}
-
-.openLanguageBg {
-  display: flex;
-}
-
 .rotateBurger span:nth-child(2){
   display: none;
 }
@@ -30361,12 +30353,12 @@ video {
 }
 
 .carousel-list {
-  padding: 0 15px;
+  padding: 0 20px 0 25px;
 }
 
 .carousel-list .card {
   height: 300px;
-  padding: 0 10px;
+  /* padding: 0 10px; */
 }
 
 .card .card-info {
