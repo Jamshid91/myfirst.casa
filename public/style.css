@@ -30336,29 +30336,28 @@ video {
   left: -50px;
 }
 
-.carousel-wrapper .next,
-      .carousel-wrapper .prev {
+.carousel .next,
+      .carousel .prev {
   top: 50%;
   transform: translateY(-50%);
   width: 50px !important;
   height: 50px !important;
 }
 
-.carousel-wrapper .prev svg {
+.carousel .prev svg {
   transform: rotate(180deg);
 }
 
-.carousel-wrapper .prev {
+.prev {
   display: none;
 }
 
 .carousel-list {
-  padding: 0 22px 0 25px;
+  padding: 0 12px 0 25px;
 }
 
 .carousel-list .card {
   height: 300px;
-  /* padding: 0 10px; */
 }
 
 .card .card-info {
@@ -30450,6 +30449,11 @@ video {
   .receive .receive__title {
     width: 100% !important;
   }
+
+  .carousel-list {
+    min-width: 200px !important;
+    padding: 0 20px;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -30486,7 +30490,12 @@ video {
   }
 
   .carousel-list {
-    min-width: 200px !important;
+    padding: 0;
+    padding-right: 15px;
+  }
+
+  .carousel-list .card {
+    height: 200px;
   }
 }
 
