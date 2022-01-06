@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First estate</title>
     <link rel="shortcut icon" href="assets/img/svg/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/carousel.css">
+    <link rel="stylesheet" href="assets/css/thema.css">
     <link rel="stylesheet" href="public/style.css">
 </head>
 
@@ -379,68 +381,56 @@
     </aside>
     <!-- End aside -->
 
-    <section id="carousel" class="carousel my-28 md:my-20 sm:mb-5 font-montserrat overflow-hidden">
+    <section id="carousel" class="carousel py-10 my-28 xl:my-10 md:my-0 sm:mb-5 font-montserrat overflow-hidden">
         <div class="container relative">
             <div class="carousel-bg h-full bg-yellow absolute rounded-3xl -z-1"></div>
-            <h2 class="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xl:ml-3 text-gray_dark font-semibold pt-14">Our exclusive projects</h2>
+            <h2 class="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xl:ml-3 text-gray_dark font-semibold pt-10">Our exclusive projects</h2>
             <p class="text-gray_dark text-2xl lg:text-xl sm:text-lg xl:ml-3 font-medium mt-4 pb-10">We you imagine we create </p>
-
-            <div class="overflow-x-hidden relative ">
-                <button class="prev absolute left-0 z-10 bg-white rounded-full flex items-center justify-center rotate-45">
-                    <svg width="17" height="30" viewBox="0 0 17 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.5 2.49976L15 14.9998L2.5 27.4998" stroke="#3A3C44" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>                        
-                </button>
-                <button class="next absolute right-1.5 xl:right-0 z-10 bg-white rounded-full flex items-center justify-center">
-                    <svg width="17" height="30" viewBox="0 0 17 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.5 2.49976L15 14.9998L2.5 27.4998" stroke="#3A3C44" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>       
-                </button>
-                <div class="carousel-wrapper">
-                    <div class="carousel-item w-full pb-10 sm:px-3">
-                        <div class="carousel-list">
-                           <div class="relative card overflow-hidden">
-                            <img class="absolute w-full h-full object-cover rounded-3xl"  alt="" src="assets/img/png/card1.jpg" srcset="assets/img/png/card1.jpg 1x, assets/img/png/card1.jpg 2x">  
-                                <div class="card-hover absolute top-0 left-0 w-full h-full rounded-3xl">
-                                    <a href="" class="card-info absolute z-10 text-white font-montserrat">
-                                        <h3 class=" text-2xl font-bold">Villa Blanca</h3>
-                                        <p class="text-lg font-medium">read more...</p>
-                                    </a>
-                                </div>
-                           </div>
+                <div class="pb-10 xl:px-5">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item carousel-list">
+                               <div class="relative card overflow-hidden h-72 xl:h-56">
+                                <img src="../assets/img/png/card1.jpg" alt="" class="absolute top-0 left-0 w-full h-full object-cover rounded-3xl">  
+                                    <div class="card-hover absolute top-0 left-0 w-full h-full rounded-3xl">
+                                        <a href="" class="card-info absolute z-10 text-white font-montserrat">
+                                            <h3 class=" text-2xl font-bold">Villa Blanca</h3>
+                                            <p class="text-lg font-medium">read more...</p>
+                                        </a>
+                                    </div>
                         </div>
-                        <div class="carousel-list">
-                           <div class="relative card">
-                            <img class="absolute w-full h-full object-cover rounded-3xl"  alt="" src="assets/img/png/card2.jpg" srcset="assets/img/png/card2.jpg 1x, assets/img/png/card2.jpg 2x">  
-                                <div class="card-hover absolute top-0 left-0 w-full h-full rounded-3xl">
-                                    <a href="" class="card-info absolute z-10 text-white font-montserrat">
-                                        <h3 class=" text-2xl font-bold">Villa Blanca</h3>
-                                        <p class="text-lg font-medium">read more...</p>
-                                    </a>
-                                </div>
-                           </div>
                         </div>
-                        <div class="carousel-list">
-                           <div class="relative card">
-                            <img class="absolute w-full h-full object-cover rounded-3xl"  alt="" src="assets/img/png/card3.jpg" srcset="assets/img/png/card3.jpg 1x, assets/img/png/card3.jpg 2x">  
+                        <div class="item carousel-list">
+                           <div class="relative card overflow-hidden h-72 xl:h-56">
+                            <img src="../assets/img/png/card2.jpg" alt="" class="absolute top-0 left-0 w-full h-full object-cover rounded-3xl">  
                                 <div class="card-hover absolute top-0 left-0 w-full h-full rounded-3xl">
                                     <a href="" class="card-info absolute z-10 text-white font-montserrat">
                                         <h3 class=" text-2xl font-bold">Villa Blanca</h3>
                                         <p class="text-lg font-medium">read more...</p>
                                     </a>
                                 </div>
-                           </div>
+                    </div>
                         </div>
-                        <div class="carousel-list">
-                           <div class="relative card">
-                            <img class="absolute w-full h-full object-cover rounded-3xl"  alt="" src="assets/img/png/card1.jpg" srcset="assets/img/png/card1.jpg 1x, assets/img/png/card1.jpg 2x">  
-                                <div class="card-hover absolute top-0 left-0 w-full h-full rounded-3xl">
-                                    <a href="" class="card-info absolute z-10 text-white font-montserrat">
-                                        <h3 class=" text-2xl font-bold">Villa Blanca</h3>
-                                        <p class="text-lg font-medium">read more...</p>
-                                    </a>
-                                </div>
-                           </div>
+                        <div class="item carousel-list">
+                       <div class="relative card overflow-hidden h-72 xl:h-56">
+                        <img src="../assets/img/png/card3.jpg" alt="" class="absolute top-0 left-0 w-full h-full object-cover rounded-3xl">  
+                            <div class="card-hover absolute top-0 left-0 w-full h-full rounded-3xl">
+                                <a href="" class="card-info absolute z-10 text-white font-montserrat">
+                                    <h3 class=" text-2xl font-bold">Villa Blanca</h3>
+                                    <p class="text-lg font-medium">read more...</p>
+                                </a>
+                            </div>
+                </div>
+                        </div>
+                        <div class="item carousel-list">
+                       <div class="relative card overflow-hidden h-72 xl:h-56">
+                        <img src="../assets/img/png/card3.jpg" alt="" class="absolute top-0 left-0 w-full h-full object-cover rounded-3xl">  
+                            <div class="card-hover absolute top-0 left-0 w-full h-full rounded-3xl">
+                                <a href="" class="card-info absolute z-10 text-white font-montserrat">
+                                    <h3 class=" text-2xl font-bold">Villa Blanca</h3>
+                                    <p class="text-lg font-medium">read more...</p>
+                                </a>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -449,7 +439,7 @@
     </section>
     <!-- End  carousel-->
 
-    <section class="receive mt-20 mb-28 md:mt-0 md:mb-0 sm:mb-5 xl:overflow-x-hidden sm:mt-20">
+    <section class="receive mt-20 mb-28 xl:mb-0 xl:mt-0 md:mb-0 sm:mb-5 xl:overflow-x-hidden sm:mt-10">
         <div class="container mb-14 xl:pl-3 md:pl-3 sm:pl-0">
             <h2 class="receive__title text-gray_dark text-6xl xl:text-5xl font-semibold font-montserrat relative z-30 md:text-4xl sm:text-3xl sm:font-medium sm:px-4">Receive useful 
                 <a href="" class="border-b-4 md:border-b-2 border-gray_dark hover:text-yellow hover:border-red">information</a> and 
@@ -560,10 +550,12 @@
     </footer>
     <!-- End footer -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="assets/js/index.js"></script>
+   <script src="assets/js/jQuery.js"></script>
+   <script src="assets/js/cloudflare.js"></script>
+    <script src="assets/js/index.js"></script>
 
 <script>
+  
 
 </script>
 </body>

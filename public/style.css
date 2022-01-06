@@ -30340,30 +30340,6 @@ main {
   left: -50px;
 }
 
-.carousel .next,
-      .carousel .prev {
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px !important;
-  height: 50px !important;
-}
-
-.carousel .prev svg {
-  transform: rotate(180deg);
-}
-
-.prev {
-  display: none;
-}
-
-.carousel-list {
-  padding: 0 12px 0 25px;
-}
-
-.carousel-list .card {
-  height: 300px;
-}
-
 .card .card-info {
   bottom: 15px;
   left: 25px;
@@ -30407,6 +30383,44 @@ main {
 
 .language-panel {
   display: none;
+}
+
+.owl-nav button {
+  width: 50px !important;
+  height: 50px !important;
+  background-color: #fff !important;
+  border-radius: 50% !important;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 60px !important;
+  color: #000 !important;
+}
+
+.owl-nav button span {
+  position: absolute;
+  top: 0px;
+  transform: translateY(-50%);
+  display: block;
+  width: 50px !important;
+  height: 50px !important;
+  z-index: 99;
+}
+
+.owl-nav button:hover {
+  background-color: #F5F5F9 !important;
+}
+
+.owl-prev {
+  left: -25px;
+}
+
+.owl-next {
+  right: -25px;
+}
+
+.btnHide {
+  display: none !important;
 }
 
 /* SCREEN */
@@ -30453,11 +30467,6 @@ main {
   .receive .receive__title {
     width: 100% !important;
   }
-
-  .carousel-list {
-    min-width: 200px !important;
-    padding: 0 20px;
-  }
 }
 
 @media screen and (max-width: 640px) {
@@ -30491,14 +30500,6 @@ main {
 
   .receive .form-item {
     width: 100%;
-  }
-
-  .carousel-list {
-    padding: 0 12px 0 25px;
-  }
-
-  .carousel-list .card {
-    height: 200px;
   }
 }
 

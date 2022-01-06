@@ -6,8 +6,6 @@ let burger = document.querySelector('header .burger');
 let mobileHeader = document.querySelector('.mobile-header-item');
 let mobileHeaderMenu = document.querySelector('.mobile-header-menu');
 let mobileHeaderLang = document.querySelector('.mobile-header-language');
-let next = document.querySelector('.carousel .next');
-let prev = document.querySelector('.carousel .prev');
 let searchInp = document.querySelector('.form-search-input');
 let clickedLists = document.querySelectorAll('.search-item li');
 let searchLists = document.querySelectorAll('.search .search-list');
@@ -110,169 +108,6 @@ mobileHeaderMenu.addEventListener('click', () => {
 
 // End Filter search
 
-
-// Start Carouel
-class Carouel {
-    constructor({
-        main, 
-        wrap, 
-        next, 
-        prev,
-        infinity = false,
-        position = 0,
-        slidesToShow = 1,
-        responsive = []
-    }) {
-        this.main = document.querySelector(main);
-        this.wrap = document.querySelector(wrap);
-        this.next = document.querySelector(next);
-        this.prev = document.querySelector(prev);
-        this.carousels = document.querySelector(wrap).children;
-        this.position = position;
-        this.slidesToShow = slidesToShow;
-        this.options = {
-            position,
-            infinity,
-            widthSlide: Math.floor(100 / this.slidesToShow),
-            maxPosition: this.carousels.length - this.slidesToShow
-        }
-        this.responsive = responsive;
-    }
-
-    init() {
-        this.addMyClass();
-        this.addStyle();
-        if(this.next && this.prev) {
-            this.controlSlider();
-        }
-
-        if(this.responsive) {
-            this.responseInit();
-        }
-    }
-
-     addMyClass() {
-         this.main.classList.add('main');
-         this.wrap.classList.add('wrap');
-        for(const item of this.carousels) {
-            item.classList.add('my-carousel-list')
-        }
-    }
-
-    addStyle() {
-        let style = document.getElementById('carousel-style');
-            style = document.createElement('style');
-            style.id = 'carousel-style';
-
-        style.textContent = `
-            .main {
-                
-            }
-
-            .wrap {
-                display: flex;
-                transition: transform .5s;
-                will-change: transform;
-            }
-
-            .my-carousel-list {
-                flex: 0 0 ${this.options.widthSlide}%;
-            }
-        `;
-        document.head.appendChild(style);
-    }
-
-    controlSlider() {
-        this.next.addEventListener('click', this.nextSlider.bind(this));
-        this.prev.addEventListener('click', this.prevSlider.bind(this));
-    }
-
-
-    nextSlider() {
-        prev.style.display = 'flex'
-        if(this.options.infinity || this.options.position < this.options.maxPosition) {
-        ++this.options.position
-        if(this.options.position > this.options.maxPosition) {
-            this.options.position = 0
-            // next.style.display = 'none'
-        }
-        this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
-        }
-    }
-
-    prevSlider() {
-        next.style.display = 'flex'
-        if(this.options.infinity || this.options.position > 0) {
-        --this.options.position
-        if(this.options.position < 0) {
-            this.options.position = this.options.maxPosition
-            // prev.style.display = 'none'
-        }
-        this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
-        }
-    }
-
-    responseInit() {
-        const slidesToShowDefault = this.slidesToShow;
-        const allRespone = this.responsive.map(item => item.breakpoint);
-        const maxResponse = Math.max(...allRespone);
-
-        const checkResponse = () => {
-            const widthWindow = document.documentElement.clientWidth;
-
-            if(widthWindow < maxResponse) {
-                for(let i = 0; i < allRespone.length; i++) {
-                    if(widthWindow < allRespone[i]) {
-                        this.slidesToShow = this.responsive[i].slidesToShow;
-                        this.options.widthSlide = Math.floor(100 / this.slidesToShow);
-                        this.addStyle();
-                    } 
-                }
-            } 
-            else {
-                this.slidesToShow = slidesToShowDefault
-                this.options.widthSlide = Math.floor(100 / this.slidesToShow);
-                this.addStyle();
-            }
-        }
-
-        checkResponse();
-
-        window.addEventListener('resize', checkResponse)
-    }
-}
-
-const carousel = new Carouel({
-    main: '.carousel-wrapper',
-    wrap: '.carousel-item',
-    next: '.next',
-    prev: '.prev',
-    slidesToShow: 3,
-    infinity: true,
-    responsive: [
-        // {
-        // breakpoint: 1024,
-        // slidesToShow: 3
-        // },
-        {
-        breakpoint: 769,
-        slidesToShow: 2
-        },
-        {
-        breakpoint: 576,
-        slidesToShow: 1
-        }
-]
-});
-carousel.init();
-
-// if (window.matchMedia("(max-width: 576px)").matches) {
-//     carouselLists.forEach(card => {
-//         card.style.maxWidth = '300px'
-//     });
-// }
-// End Carousel
-
 // Start Form
 let form = document.getElementById('form');
 let userName = document.getElementById('userName');
@@ -360,3 +195,42 @@ function isEmail(email) {
   return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 // End Form
+
+
+// Start carousel
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:20,
+    nav:true,
+    dots:false,
+    touchDrag: true,
+    mouseDrag:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:3
+        }
+    }
+    })
+    
+    let next = document.querySelector('.owl-next');
+    let prev = document.querySelector('.owl-prev');
+    
+    
+    
+    
+    function abs() {
+        prev.classList.add('btnHide')
+    }
+    
+    abs()
+    
+    next.addEventListener('click', () => {
+        prev.classList.remove('btnHide')
+    })
+    
