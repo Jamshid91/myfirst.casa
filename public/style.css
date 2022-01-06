@@ -30283,6 +30283,10 @@ video {
   color: #FDCE4D;
 }
 
+main {
+  height: 890px;
+}
+
 .rotateBurger span:nth-child(2){
   display: none;
 }
@@ -30490,8 +30494,7 @@ video {
   }
 
   .carousel-list {
-    padding: 0;
-    padding-right: 15px;
+    padding: 0 12px 0 25px;
   }
 
   .carousel-list .card {

@@ -120,7 +120,7 @@ class Carouel {
         prev,
         infinity = false,
         position = 0,
-        slidesToShow = 3,
+        slidesToShow = 1,
         responsive = []
     }) {
         this.main = document.querySelector(main);
@@ -192,9 +192,9 @@ class Carouel {
         prev.style.display = 'flex'
         if(this.options.infinity || this.options.position < this.options.maxPosition) {
         ++this.options.position
-        if(this.options.position >= this.options.maxPosition) {
-            // this.options.position = 0
-            next.style.display = 'none'
+        if(this.options.position > this.options.maxPosition) {
+            this.options.position = 0
+            // next.style.display = 'none'
         }
         this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
         }
@@ -204,9 +204,9 @@ class Carouel {
         next.style.display = 'flex'
         if(this.options.infinity || this.options.position > 0) {
         --this.options.position
-        if(this.options.position <= 0) {
-            // this.options.position = this.options.maxPosition
-            prev.style.display = 'none'
+        if(this.options.position < 0) {
+            this.options.position = this.options.maxPosition
+            // prev.style.display = 'none'
         }
         this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
         }
@@ -266,11 +266,11 @@ const carousel = new Carouel({
 });
 carousel.init();
 
-if (window.matchMedia("(max-width: 576px)").matches) {
-    carouselLists.forEach(card => {
-        card.style.maxWidth = '300px'
-    });
-}
+// if (window.matchMedia("(max-width: 576px)").matches) {
+//     carouselLists.forEach(card => {
+//         card.style.maxWidth = '300px'
+//     });
+// }
 // End Carousel
 
 // Start Form
