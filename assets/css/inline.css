@@ -172,6 +172,7 @@ html,body,section,main,aside,footer,div,span,h1,h2,h3,h4,h5,h6,a,ul,li,p,button,
         width: 50px !important;
         height: 50px !important;
         z-index: 99;
+        font-weight: 300;
     }
     .owl-nav button:hover {
         background-color: #F5F5F9 !important;
@@ -256,6 +257,23 @@ html,body,section,main,aside,footer,div,span,h1,h2,h3,h4,h5,h6,a,ul,li,p,button,
     .receive .form-item {
         width: 100%;   
     }
+    
+    .owl-nav button {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 50px !important;
     }
+    .owl-nav button span {
+        top: 0px;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    .owl-prev {
+        left: -20px;
+    }
+    .owl-next {
+        right: -20px;
+    }
+}
 
 
