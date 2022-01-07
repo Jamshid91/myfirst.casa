@@ -30395,6 +30395,7 @@ main {
   transform: translateY(-50%);
   font-size: 60px !important;
   color: #000 !important;
+  outline: none !important;
 }
 
 .owl-nav button span {
