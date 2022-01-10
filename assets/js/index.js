@@ -71,12 +71,12 @@ mobileHeaderMenu.addEventListener('click', () => {
                 if(elem.textContent.search(val) == -1) {
                     elemPar.classList.add('hidden');
                     elem.innerHTML = elem.innerText;
+                    noMatches.classList.add('hidden')
                 } else {
                     elemPar.classList.remove('hidden');
                     let str = elem.innerText;
                     elem.innerHTML = insertMark(str, elem.textContent.search(val), val.length)
                     
-                    noMatches.classList.remove('hidden')
                 }
 
                 elemPar.addEventListener('click', () => {
@@ -95,11 +95,18 @@ mobileHeaderMenu.addEventListener('click', () => {
             });
             searchInp.classList.remove('rounded-b-none');
         }
-
+        searchLists.forEach(elem => {
+            let elemPar = elem.parentElement.parentElement.parentElement
+            if(elemPar.value != val) {
+                noMatches.classList.remove('hidden')
+            } else {
+                noMatches.classList.add('hidden')
+            }
+        });
         if(searchInp.value == '') {
             noMatches.classList.add('hidden');
             searchInp.classList.remove('rounded-b-none');
-        }
+        } 
     });
 
     function insertMark(string,pos,len) {
@@ -120,10 +127,10 @@ let submitBtn = document.getElementById('submitForm')
 submitBtn.addEventListener('click', () => {
   checkInputs()
 
-  let successName = userName.parentElement.children[1].classList;
-  let successEmail = userEmail.parentElement.children[1].classList;
-  let successPass = userPhone.parentElement.children[1].classList;
-  let successMessage = message.parentElement.children[1].classList;
+  let successName = userName.parentElement.classList;
+  let successEmail = userEmail.parentElement.classList;
+  let successPass = userPhone.parentElement.classList;
+  let successMessage = message.parentElement.classList;
 
   if(successName == 'success' && successEmail == 'success' && successPass == 'success' && successMessage == 'success') {
     submitBtn.type = 'submit'
@@ -141,7 +148,7 @@ function checkInputs() {
     setErrorFor(userName, "Enter your name")
   } else {
     setSuccesFor(userName)
-    userName.parentElement.children[1].classList.add('success')
+    userName.parentElement.classList.add('success')
   }
 
   if(userEmailValue === '') {
@@ -152,14 +159,14 @@ function checkInputs() {
   }
   else {
     setSuccesFor(userEmail)
-    userEmail.parentElement.children[1].classList.add('success')
+    userEmail.parentElement.classList.add('success')
   }
 
   if(userPhoneValue === '' || userPhoneValue.length < 4) {
     setErrorFor(userPhone, "Enter your number")
   } else {
     setSuccesFor(userPhone)
-    userPhone.parentElement.children[1].classList.add('success')
+    userPhone.parentElement.classList.add('success')
   }
   
   if(messageValue === '') {
@@ -170,12 +177,12 @@ function checkInputs() {
   }
   else {
     setSuccesFor(message)
-    message.parentElement.children[1].classList.add('success')
+    message.parentElement.classList.add('success')
   }
 }
 
 function setErrorFor(input, message) {
-let small = input.parentElement.children[1]
+let small = input.parentElement.parentElement.children[1]
 
     input.classList.add('inputError');
 
@@ -183,12 +190,10 @@ let small = input.parentElement.children[1]
 }
 
 function setSuccesFor(input) {
-let small = input.parentElement.children[1]
-    input.classList.remove('inputError');
-    input.classList.add('inputSucces');
-
+let small = input.parentElement.parentElement.children[1]
+    // input.classList.remove('inputError');
+    // input.classList.add('inputSucces');
     small.innerText = ''
-
 } 
 
 function isEmail(email) {
@@ -219,10 +224,7 @@ $('.owl-carousel').owlCarousel({
     })
     
     let next = document.querySelector('.owl-next');
-    let prev = document.querySelector('.owl-prev');
-    
-    
-    
+    let prev = document.querySelector('.owl-prev');  
     
     function abs() {
         prev.classList.add('btnHide')

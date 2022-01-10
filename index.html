@@ -101,7 +101,7 @@
                             <path d="M21.7895 22.2632L27 27.4737" stroke="#C4C4C4" stroke-width="3"/>
                             </svg>                            
                         <input type="text" class="form-search-input pl-5 lg:pl-14 pr-14 w-full h-12 rounded-3xl outline-none text-lg font-semibold font-montserrat text-gray_dark" placeholder="Ex: Alicante" maxlength="80">
-                        <ul class="absolute search-item rounded-b-xl top-8 w-full z-50 bg-gray_light max-h-64 overflow-y-scroll font-montserrat">
+                        <ul class="absolute search-item rounded-b-xl top-8 w-full z-50 bg-gray_light max-h-40 overflow-y-scroll font-montserrat">
                             <li class="hidden items-start border-b-2 px-10 cursor-pointer py-3 sm:px-4 border-gray_light hover:bg-gray-200">
                                 <div class="flex">
                                     <div class="flex flex-col ml-4">
@@ -451,20 +451,20 @@
                 <div class="form-item">
                     <div class="receive-form-sub flex justify-between mb-4 text-gray_dark font-medium text-xl md:flex-wrap">
                         <div class="relative inp_email">
-                            <input type="email" id="userEmail" class="form__inp w-full h-12 rounded-3xl outline-none px-4 text-gray_dark font-medium text-xl md:w-full md:mb-4" placeholder="E-mail">
+                            <div class=""><input type="email" id="userEmail" class="form__inp w-full h-12 rounded-3xl outline-none px-4 text-gray_dark font-medium text-xl md:w-full md:mb-4" placeholder="E-mail"></div>
                             <small class="absolute left-1 -bottom-4 md:bottom-0 text-xs text-red font-normal font-montserrat"></small>
                         </div>
                         <div class="relative inp_num">
-                            <input type="number" id="userPhone" class="form__inp w-full  h-12 rounded-3xl outline-none px-4 text-gray_dark font-medium text-xl md:w-full " placeholder="Phone">
+                            <div class=""><input type="number" id="userPhone" class="form__inp w-full  h-12 rounded-3xl outline-none px-4 text-gray_dark font-medium text-xl md:w-full " placeholder="Phone"></div>
                             <small class="absolute left-1 -bottom-4 text-xs text-red font-normal font-montserrat"></small>
                         </div>
                     </div>
                     <div class="relative">
-                        <input type="text" id="userName" class="form__inp inp_name h-12 w-full rounded-3xl outline-none mb-4 px-4 text-gray_dark font-medium text-xl" placeholder="Name, Surname">
+                        <div class=""><input type="text" id="userName" class="form__inp inp_name h-12 w-full rounded-3xl outline-none mb-4 px-4 text-gray_dark font-medium text-xl" placeholder="Name, Surname"></div>
                         <small class="absolute left-1 bottom-0 text-xs text-red font-normal font-montserrat"></small>
                     </div>
                     <div class="relative">
-                        <textarea id="message" class="w-full h-24 rounded-3xl outline-none resize-none p-4 text-gray_dark font-medium text-xl" placeholder="Message"></textarea>
+                        <div class=""><textarea id="message" class="w-full h-24 rounded-3xl outline-none resize-none p-4 text-gray_dark font-medium text-xl" placeholder="Message"></textarea></div>
                         <small class="absolute left-1 -bottom-3 text-xs text-red font-normal font-montserrat"></small>
                     </div>
                     <div class="flex mt-4 md:flex-wrap">
@@ -545,7 +545,7 @@
                 </div>
                 </div>
             </div>
-            <h4 class="text-white text-base font-montserrat font-normal sm:text-center">© First Estate Terms Privacy Cookies Sitemap</h4>
+            <a href="" class="text-white text-base font-montserrat font-normal sm:text-center hover:text-yellow">© First Estate Terms Privacy Cookies Sitemap</a>
         </div>
     </footer>
     <!-- End footer -->
@@ -553,11 +553,6 @@
    <script src="assets/js/jQuery.js"></script>
    <script src="assets/js/cloudflare.js"></script>
     <script src="assets/js/index.js"></script>
-
-<script>
-  
-
-</script>
 </body>
 </html>
 
