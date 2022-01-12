@@ -7,10 +7,9 @@ let mobileHeader = document.querySelector('.mobile-header-item');
 let mobileHeaderMenu = document.querySelector('.mobile-header-menu');
 let mobileHeaderLang = document.querySelector('.mobile-header-language');
 let searchInp = document.querySelector('.form-search-input');
-let clickedLists = document.querySelectorAll('.search-item li');
 let searchLists = document.querySelectorAll('.search .search-list');
 let noMatches = document.querySelector('.no-matches');
-let carouselLists = document.querySelectorAll('.carousel-list');
+let filterItem = document.getElementById("myUL");
 
 openLanguage.addEventListener('click', () => {
     languageBg.classList.toggle('hidden');
@@ -18,21 +17,9 @@ openLanguage.addEventListener('click', () => {
 
 main.addEventListener('click', () => {
     languageBg.classList.add('hidden');
-    noMatches.classList.add('hidden');
-    searchInp.classList.remove('rounded-b-none');
-    searchLists.forEach(elem => {
-        let elemPar = elem.parentElement.parentElement.parentElement
-        elemPar.classList.add('hidden');
-    });
 });
 mainBg.addEventListener('click', () => {
     languageBg.classList.add('hidden');
-    noMatches.classList.add('hidden');
-    searchInp.classList.remove('rounded-b-none');
-    searchLists.forEach(elem => {
-        let elemPar = elem.parentElement.parentElement.parentElement
-        elemPar.classList.add('hidden');
-    });
 });
 
 window.addEventListener('click', (e) => {
@@ -61,57 +48,54 @@ mobileHeaderMenu.addEventListener('click', () => {
 
 // Start Filter search
 
-    searchInp.addEventListener('input', () => {
-        searchInp.classList.add('rounded-b-none');
-        let val = searchInp.value.trim();
-        if(val != '') {
-            searchLists.forEach(elem => {
-                let elemPar = elem.parentElement.parentElement.parentElement
+function myFunction() {
+  let input, filter, filterList, filterLists, i, txtValue, clear;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  filterList = filterItem.getElementsByTagName("li");
+  filterLists = document.querySelectorAll(".filters");
+  clear = document.querySelector('.clear-filter');
+  clear.classList.remove('hidden');
+  if(input.value.length >= 3) {
+    for (i = 0; i < filterList.length; i++) {
+      list = filterList[i];
+      txtValue = list.textContent || list.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        list.style.display = "flex";
+      } else {
+        list.style.display = "none";
+        
+      }
+  }
+  noMatches.classList.remove('hidden');
+  filterItem.classList.remove('hidden');
+  }else {
+    for (i = 0; i < filterList.length; i++) {
+      list = filterList[i];
+      list.style.display = "none";
+  }
+  noMatches.classList.add('hidden')
+  }
 
-                if(elem.textContent.search(val) == -1) {
-                    elemPar.classList.add('hidden');
-                    elem.innerHTML = elem.innerText;
-                    noMatches.classList.add('hidden')
-                } else {
-                    elemPar.classList.remove('hidden');
-                    let str = elem.innerText;
-                    elem.innerHTML = insertMark(str, elem.textContent.search(val), val.length)
-                    
-                }
+  filterLists.forEach(elem => {
+    elem.addEventListener('click', () => {
+      input.value = elem.textContent
+      filterItem.classList.add('hidden')
+      noMatches.classList.add('hidden')
+    })
+  });
 
-                elemPar.addEventListener('click', () => {
-                    searchInp.value = elem.innerText;
-                    searchLists.forEach(elem1 => {
-                        let elemPar1 = elem1.parentElement.parentElement.parentElement
-                        elemPar1.classList.add('hidden');
-                    })
-                })
-            });
-        } else {
-            searchLists.forEach(elem => {
-                let elemPar = elem.parentElement.parentElement.parentElement
-                elemPar.classList.add('hidden');
-                elem.innerHTML = elem.innerText;
-            });
-            searchInp.classList.remove('rounded-b-none');
-        }
-        searchLists.forEach(elem => {
-            let elemPar = elem.parentElement.parentElement.parentElement
-            if(elemPar.value != val) {
-                noMatches.classList.remove('hidden')
-            } else {
-                noMatches.classList.add('hidden')
-            }
-        });
-        if(searchInp.value == '') {
-            noMatches.classList.add('hidden');
-            searchInp.classList.remove('rounded-b-none');
-        } 
-    });
+  clear.addEventListener('click', () => {
+    filterItem.classList.add('hidden');
+    noMatches.classList.add('hidden');
+    input.value = '';
+    clear.classList.add('hidden')
+  });
 
-    function insertMark(string,pos,len) {
-        return string.slice(0, pos) + '<mark>' + string.slice(pos, pos + len) + '</mark>' + string.slice(pos + len)
-    } 
+  if(input.value == '') {
+    clear.classList.add('hidden');
+  }
+}
 
 // End Filter search
 
@@ -235,4 +219,9 @@ $('.owl-carousel').owlCarousel({
     next.addEventListener('click', () => {
         prev.classList.remove('btnHide')
     })
+
+
+
+
+
     

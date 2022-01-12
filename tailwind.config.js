@@ -40,6 +40,9 @@ module.exports = {
       'md': {'max': '768px'},
 
       'sm': {'max': '640px'},
+
+      'col': {'max': '420px'},
+
     },
 
     listStyleType: {
